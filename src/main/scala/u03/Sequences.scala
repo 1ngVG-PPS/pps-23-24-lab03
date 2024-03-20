@@ -47,8 +47,11 @@ object Sequences: // Essentially, generic linkedlists
       case Nil() => Nil()
       case Cons(h, t) => concat(mapper(h), flatMap(t)(mapper))
     
-    def min(l: Sequence[Int]): Optional[Int] = ???
-
+    def min(l: Sequence[Int]): Optional[Int] = l match
+      case Nil() => Optional.Empty()
+      case Cons(h, Nil()) => Optional.Just(h)
+      case Cons(h, t) => min(filter(Cons(h, t))(h < _))
+      
     //Define map and filter in terms of flatmap
     def fmMap[A, B](l: Sequence[A])(mapper: A => B): Sequence[B] = ???
     def fmFilter[A](l1: Sequence[A])(pred: A => Boolean): Sequence[A] = ???   
