@@ -48,7 +48,11 @@ object Sequences: // Essentially, generic linkedlists
       case Cons(h, t) => concat(mapper(h), flatMap(t)(mapper))
     
     def min(l: Sequence[Int]): Optional[Int] = ???
-    
+
+    //Define map and filter in terms of flatmap
+    def fmMap[A, B](l: Sequence[A])(mapper: A => B): Sequence[B] = ???
+    def fmFilter[A](l1: Sequence[A])(pred: A => Boolean): Sequence[A] = ???   
+
 @main def trySequences =
   import Sequences.* 
   val l = Sequence.Cons(10, Sequence.Cons(20, Sequence.Cons(30, Sequence.Nil())))
