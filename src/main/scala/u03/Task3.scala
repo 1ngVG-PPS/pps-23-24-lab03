@@ -17,6 +17,8 @@ object Task3:
                 case _ => Nil()
             case Nil() => Nil()
         
+        
+        
     
         
 
