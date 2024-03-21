@@ -54,7 +54,14 @@ object Sequences: // Essentially, generic linkedlists
       
     //Define map and filter in terms of flatmap
     def fmMap[A, B](l: Sequence[A])(mapper: A => B): Sequence[B] = ???
-    def fmFilter[A](l1: Sequence[A])(pred: A => Boolean): Sequence[A] = ???   
+    def fmFilter[A](l1: Sequence[A])(pred: A => Boolean): Sequence[A] = ???  
+
+    //Task 4: foldLeft 
+    def foldLeft[A](l: Sequence[A])(v: A)(op: (A, A) => A): A = l match
+      case Nil() => v
+      case Cons(h, t)  => foldLeft(t)(op(v, h))(op)
+    
+
 
 @main def trySequences =
   import Sequences.* 

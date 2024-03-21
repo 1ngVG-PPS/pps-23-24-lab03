@@ -47,3 +47,7 @@ class SequenceTest:
     assertEquals(Just(10), min(l))
     assertEquals(Just(1), min(Cons(1, Nil())))
     assertEquals(Empty(), min(Nil()))
+
+  @Test def testFoldLeft() = 
+    assertEquals(6000, foldLeft(l)(1)(_ * _))
+
