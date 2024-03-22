@@ -34,3 +34,6 @@ class StreamTest:
     val str2 = Stream.nTakeWhile(str1)(2)(_ < 5) // {0,1,2,3,4}
     assertEquals(Cons(0, Cons(1, Nil())), Stream.toList(str2))
     
+  @Test def testFill(): Unit =
+    assertEquals(Cons("a", Cons("a", Cons("a", Nil()))), Stream.toList(Stream.fill(3)("a")))
+

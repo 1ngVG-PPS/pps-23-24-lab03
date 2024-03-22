@@ -46,6 +46,10 @@ object Streams extends App :
     def nTakeWhile[A](stream: Stream[A])(n: Int)(pred: A => Boolean): Stream[A] = 
       take(takeWhile(stream)(pred))(n)
 
+    def fill[A](n: Int)(k: A): Stream[A] = n match
+       case 0 => Empty()
+       case n => Cons(() => k, () => fill(n - 1)(k))
+
 
   end Stream
 
