@@ -15,6 +15,9 @@ object Task4:
 
         def filter(pred: A => Boolean): Sequence[A] =
             Sequence.filter(l)(pred)
+
+        def zip[B](second: Sequence[B]): Sequence[(A, B)] =
+            Sequence.zip(l, second)
     
 
 
