@@ -18,6 +18,19 @@ object Task4:
 
         def zip[B](second: Sequence[B]): Sequence[(A, B)] =
             Sequence.zip(l, second)
+
+        def take(n: Int): Sequence[A] =
+            Sequence.take(l)(n)
+            
+        def concat(l2: Sequence[A]): Sequence[A] =
+            Sequence.concat(l, l2)
+
+        def flatMap[B](mapper: A => Sequence[B]): Sequence[B] =
+            Sequence.flatMap(l)(mapper)
+
+        def foldLeft[B](v: B)(op: (B, A) => B): B =
+            Sequence.foldLeft(l)(v)(op)
+
     
 
 
