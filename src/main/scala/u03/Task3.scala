@@ -16,8 +16,19 @@ object Task3:
                 case Teacher (n, c) => Cons(c, foundCourses(t))
                 case _ => Nil()
             case Nil() => Nil()
+
+        def searchCourses(l: Sequence[Person]): Sequence[String] = 
+           val filtered = filter(l)(p => p match
+            case Teacher(_, c) => true
+            case _ => false
+           )
+           map(filtered)(p => p match
+            case Teacher(_, c) => c)
+
+        def flatSearch(l: Sequence[Person]): Sequence[String] = ???
         
         
+         
         
     
         

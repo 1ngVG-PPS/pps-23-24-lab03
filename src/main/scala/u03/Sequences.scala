@@ -12,8 +12,8 @@ object Sequences: // Essentially, generic linkedlists
   object Sequence:
 
     def sum(l: Sequence[Int]): Int = l match
-      case Cons(h, t) => h + sum(t)
-      case _          => 0
+     case Cons(h, t) => h + sum(t)
+     case _          => 0
 
     def map[A, B](l: Sequence[A])(mapper: A => B): Sequence[B] = l match
       case Cons(h, t) => Cons(mapper(h), map(t)(mapper))
@@ -57,11 +57,10 @@ object Sequences: // Essentially, generic linkedlists
     def fmFilter[A](l1: Sequence[A])(pred: A => Boolean): Sequence[A] = ???  
 
     //Task 4: foldLeft 
-    def foldLeft[A](l: Sequence[A])(v: A)(op: (A, A) => A): A = l match
+    def foldLeft[A, B](l: Sequence[A])(v: B)(op: (B, A) => B): B = l match
       case Nil() => v
       case Cons(h, t)  => foldLeft(t)(op(v, h))(op)
-    
-
+  
 
 @main def trySequences =
   import Sequences.* 
