@@ -21,5 +21,15 @@ class Task3Test:
     assertEquals(Cons("PPS", Nil()), foundCourses(l2))
     assertEquals(Cons("PPS", Cons("PCD", Nil())), foundCourses(l))
 
+  @Test def testSearchCourses() =
+    assertEquals(Nil(), searchCourses(Nil()))
+    assertEquals(Cons("PPS", Nil()), searchCourses(l2))
+    assertEquals(Cons("PPS", Cons("PCD", Nil())), searchCourses(l))
+  
+  @Test def testFlatSearch() =
+    assertEquals(Nil(), flatSearch(Nil()))
+    assertEquals(Cons("PPS", Nil()), flatSearch(l2))
+    assertEquals(Cons("PPS", Cons("PCD", Nil())), flatSearch(l))
+
 
 
