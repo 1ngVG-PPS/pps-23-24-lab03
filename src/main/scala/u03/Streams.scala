@@ -49,6 +49,11 @@ object Streams extends App :
     def fill[A](n: Int)(k: A): Stream[A] = n match
        case 0 => Empty()
        case n => Cons(() => k, () => fill(n - 1)(k))
+      
+
+    val pell: Stream[Int] = 
+      val n: Int = 2
+       Cons(() => 0, () =>  Cons(() => 1, () =>  iterate(n)(n => 2 * (n - 1) + (n - 2))))
 
 
   end Stream
