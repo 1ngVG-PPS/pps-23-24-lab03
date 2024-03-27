@@ -57,7 +57,7 @@ object Streams extends App :
         case 1 => n
         case 2 => n
         case _ => 2 * pellNumber(n - 1) + pellNumber(n - 2)
-      map(iterate(0)(n => n + 1))(n => 2 * pellNumber(n - 1) + pellNumber(n - 2))
+      map(iterate(0)(n => n + 1))(n => pellNumber(n))
         
 
 
