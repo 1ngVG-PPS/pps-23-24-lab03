@@ -52,8 +52,14 @@ object Streams extends App :
       
 
     val pell: Stream[Int] = 
-      val n: Int = 2
-       Cons(() => 0, () =>  Cons(() => 1, () =>  iterate(n)(n => 2 * (n - 1) + (n - 2))))
+      def pellNumber(n: Int): Int = n match
+        case 0 => n  
+        case 1 => n
+        case 2 => n
+        case _ => 2 * pellNumber(n - 1) + pellNumber(n - 2)
+      map(iterate(0)(n => n + 1))(n => 2 * pellNumber(n - 1) + pellNumber(n - 2))
+        
+
 
 
   end Stream
