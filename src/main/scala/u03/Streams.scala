@@ -37,7 +37,7 @@ object Streams extends App :
     def iterate[A](init: => A)(next: A => A): Stream[A] =
       cons(init, iterate(next(init))(next))
 
-    // Task 3
+    // Task 6
 
     def takeWhile[A](stream: Stream[A])(pred: A => Boolean): Stream[A] = stream match
       case Cons(head, tail) if pred(head()) => cons(head(), takeWhile(tail())(pred))
@@ -45,18 +45,21 @@ object Streams extends App :
 
     def nTakeWhile[A](stream: Stream[A])(n: Int)(pred: A => Boolean): Stream[A] = 
       take(takeWhile(stream)(pred))(n)
-
+    
+    //Task 7
     def fill[A](n: Int)(k: A): Stream[A] = n match
        case 0 => Empty()
        case n => Cons(() => k, () => fill(n - 1)(k))
       
+    //Task 8
+    
+    def pellNumber(n: Int): Int = n match
+      case 0 => n  
+      case 1 => n
+      case 2 => n
+      case _ => 2 * pellNumber(n - 1) + pellNumber(n - 2)
 
     val pell: Stream[Int] = 
-      def pellNumber(n: Int): Int = n match
-        case 0 => n  
-        case 1 => n
-        case 2 => n
-        case _ => 2 * pellNumber(n - 1) + pellNumber(n - 2)
       map(iterate(0)(n => n + 1))(n => pellNumber(n))
       
 
